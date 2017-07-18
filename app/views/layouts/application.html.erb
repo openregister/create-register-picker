@@ -1,15 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CreateRegisterPicker</title>
-    <%= csrf_meta_tags %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<%= content_for :content do %>
+  <main role='main' class="container">
+    <div class="grid-row">
+      <div class='column-full'>
+        <%= yield %>
+      </div>
+    </div>
+  </main>
+<% end %>
 
-  <body>
-    <%= yield %>
-    <%= javascript_pack_tag 'application' %>
-  </body>
-</html>
+<%= content_for :body_end do %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application' %>
+<% end %>
+
+<%= render file: 'layouts/govuk_template' %>

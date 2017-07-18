@@ -1,2 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1 class="heading-xlarge">Create Register Picker</h1>
+
+<form action="#">
+  <label class="form-label" for="list-of-registers">Choose a register</label>
+  <select class="form-control" id="list-of-registers" name="selected_register">
+    <% @list_of_registers.each do |register| %>
+      <option><%= register.register %></option>
+    <% end %>
+    <option>GOV.UK elements option 2</option>
+    <option>GOV.UK elements option 3</option>
+  </select>
+</form>
