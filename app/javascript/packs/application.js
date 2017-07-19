@@ -10,12 +10,12 @@
 import accessibleAutocomplete from 'accessible-autocomplete'
 import 'accessible-autocomplete/dist/accessible-autocomplete.min.css'
 
-const $listOfRegistersEl = document.querySelector('#list-of-registers')
+const $autocompleteEls = document.querySelectorAll('.autocomplete-select')
 
-if ($listOfRegistersEl) {
+Array.prototype.forEach.call($autocompleteEls, function ($autocompleteEl) {
   accessibleAutocomplete.enhanceSelectElement({
     autoselect: false,
-    selectElement: $listOfRegistersEl,
+    selectElement: $autocompleteEl,
     showAllValues: true
   })
-}
+})

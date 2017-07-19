@@ -1,0 +1,21 @@
+<h1 class="heading-xlarge">Choose field</h1>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <%= form_tag("/show-picker", method:"post") do %>
+      <div class="form-group">
+        <label class="form-label" for="list-of-fields">Choose a field</label>
+        <select class="form-control autocomplete-select" id="list-of-fields" name="selected_field">
+          <option value="" disabled selected></option>
+          <% @register.fields.each do |field| %>
+            <option value="<%= field %>"><%= field.gsub('-', ' ').capitalize %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <%= submit_tag "Next", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</div>

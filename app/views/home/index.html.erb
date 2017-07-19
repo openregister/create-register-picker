@@ -2,20 +2,20 @@
 
 <div class="grid-row">
   <div class="column-two-thirds">
-    <form action="/choose-field">
+    <%= form_tag("/choose-field", method:"post") do %>
       <div class="form-group">
         <label class="form-label" for="list-of-registers">Choose a register</label>
-        <select class="form-control" id="list-of-registers" name="selected_register">
+        <select class="form-control autocomplete-select" id="list-of-registers" name="selected_register">
           <option value="" disabled selected></option>
           <% @list_of_registers.each do |register| %>
-          <option value="<%= register.register %>"><%= register.register.gsub('-', ' ').capitalize %></option>
+            <option value="<%= register.register + ':' + register.phase %>"><%= register.register.gsub('-', ' ').capitalize + " (#{register.phase})" %></option>
           <% end %>
         </select>
       </div>
 
       <div class="form-group">
-        <button class="button" type="submit" name="submit">Next</button>
+        <%= submit_tag "Next", class: "button" %>
       </div>
-    </form>
+    <% end %>
   </div>
 </div>
