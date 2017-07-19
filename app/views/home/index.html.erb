@@ -1,12 +1,21 @@
 <h1 class="heading-xlarge">Create Register Picker</h1>
 
-<form action="#">
-  <label class="form-label" for="list-of-registers">Choose a register</label>
-  <select class="form-control" id="list-of-registers" name="selected_register">
-    <% @list_of_registers.each do |register| %>
-      <option><%= register.register %></option>
-    <% end %>
-    <option>GOV.UK elements option 2</option>
-    <option>GOV.UK elements option 3</option>
-  </select>
-</form>
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <form action="/choose-field">
+      <div class="form-group">
+        <label class="form-label" for="list-of-registers">Choose a register</label>
+        <select class="form-control" id="list-of-registers" name="selected_register">
+          <option value="" disabled selected></option>
+          <% @list_of_registers.each do |register| %>
+          <option value="<%= register.register %>"><%= register.register.gsub('-', ' ').capitalize %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button class="button" type="submit" name="submit">Next</button>
+      </div>
+    </form>
+  </div>
+</div>
