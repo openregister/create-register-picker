@@ -34,8 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'pg'
-
 gem 'openregister-ruby', git: 'https://github.com/openregister/openregister-ruby.git'
 
 gem 'govuk_template'
