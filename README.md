@@ -1,24 +1,51 @@
-# README
+# Create register picker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a tool for creating [pickers](https://github.com/alphagov/openregister-location-picker) based on [Registers](https://registers.cloudapps.digital/).
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+This is a Rails 5.1 app with [webpacker](http://github.com/rails/webpacker). Initially developed on the following (but likely works on other versions):
 
-* System dependencies
+```bash
+$ ruby -v
+ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin15]
+$ bundle --version
+Bundler version 1.15.2
+$ node -v
+v8.1.4
+$ yarn --version
+0.27.5
+```
 
-* Configuration
+## Installing and running locally
 
-* Database creation
+Install the Ruby and node.js dependencies:
 
-* Database initialization
+```bash
+$ bundle
+$ yarn
+```
 
-* How to run the test suite
+Then run a server locally by running the following commands in two shells:
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+$ bundle exec rails server
+```
 
-* Deployment instructions
+```bash
+$ ./bin/webpack-dev-server --hot --inline
+```
 
-* ...
+## Deploying
+
+You'll need to have a [GOV.UK PaaS](https://www.cloud.service.gov.uk/) account configured with access to the `openregisters` organisation.
+
+Run:
+
+```bash
+cf push create-register-picker
+```
+
+## License
+
+[MIT](LICENSE.txt).
