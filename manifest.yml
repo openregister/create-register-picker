@@ -1,6 +1,8 @@
 ---
 applications:
 - name: create-register-picker
-  buildpack: ruby_buildpack
+  buildpacks:
+    - https://github.com/cloudfoundry/ruby-buildpack/
+    - https://github.com/cloudfoundry/nodejs-buildpack/
   instances: 2
   memory: 256MB
