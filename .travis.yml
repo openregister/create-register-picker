@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.4.0
+cache: bundler
+deploy:
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: register-design-authority@digital.cabinet-office.gov.uk
+  password:
+    secure: hD4hu4HWjYtMxFJgh6dDTO/l+TbQvDD2GdnU/5QbwuER3kuBZVysQAd6INEiJYXNVAJMe6iPZpyh1E3SB7O4PPc11umf4iw4XeAu5ya3vEEAMi32EECthQf7ky+zTj5M/8gVuEI6ZVe5QpvbrYOWelKZu4pWXOhCq9uUvhdOwXWWZGpplTY+90waabZtcmdGiAEHpHEulQZ2lSr1mHh8AonZgG+URP43YYjQ/Muz3yGQJeihQ5H7nOQjhMX8zTQMqtJFqzm03G0BsoEU5SquL9g9b3BgjdP/gxGKI6J5iuL0us5kEx3g6CJ23ahtnPoqWRhAau13/q/VI+hgiL5S9RqBxFke32wAo0I+2Xq0hIF6Ln40MDVGLwMglG+x2p0tjgyEkRGLGgbTJu7I81GMhshBdopUDCwk+9fkj3zn2xisn1vHWUe6qkA9uwjI9W3Wv2hNWwzg/QlTuV9fngIcJaWPJprhehvJzESJjN9ZE8WRETPgV0X3MAF5DzjNZow6J4xYOpVBFEBs/E23mRBraku+VjP7N/1clKMXQARPvaCnXElbKcqB70fIhbXVXQoZ5fq0EDj2KyagNdVNxCqWboPuX0hK81/NaSiv9bweyuMIlDiXA6cYaYkKFQ49nL9tNLXuhbyJ9CHWBpPXeeWtjpDc/qda3ooTESczjmrDiKQ=
+  organization: openregister
+  space: sandbox
+  on:
+    repo: openregister/create-register-picker
