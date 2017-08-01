@@ -24,4 +24,7 @@ class HomeController < ApplicationController
     list_of_registers = OpenRegister.registers :beta
     list_of_registers
   end
+
+  def download
+  end
 end

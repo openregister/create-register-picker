@@ -1,4 +1,15 @@
- @import 'govuk-elements';
+@import 'govuk-elements';
+@import 'prism';
+
+details {
+  summary {
+    margin-bottom: 0;
+  }
+
+  pre[class*="language-"] {
+    margin-top: 20px;
+  }
+}
 
 .container {
   @extend %site-width-container;
@@ -7,4 +18,18 @@
 
 .autocomplete__dropdown-arrow-down {
   z-index: 0;
+}
+
+// As per https://government-frontend.herokuapp.com/component-guide/download-link
+.download-link {
+  display: inline-block;
+  font-weight: bold;
+  margin: 15px 0;
+
+  &__icon {
+    margin-right: 0.5em;
+    height: 1.31578947368em;
+    width: 1.31578947368em;
+    vertical-align: middle
+  }
 }
