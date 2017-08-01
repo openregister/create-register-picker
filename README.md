@@ -1,5 +1,7 @@
 # Create register picker
 
+[![Build Status](https://travis-ci.org/openregister/create-register-picker.svg?branch=master)](https://travis-ci.org/openregister/create-register-picker)
+
 This is a tool for creating [pickers](https://github.com/alphagov/openregister-location-picker) based on [Registers](https://registers.cloudapps.digital/).
 
 ## Prerequisites
