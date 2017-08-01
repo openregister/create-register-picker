@@ -1,0 +1,33 @@
+<h1 class="heading-large">Preview and download your code</h1>
+<p>Your picker and dataset is available as two files:</p>
+<ul class="list">
+  <li>picker.html</li>
+  <li>data.json</li>
+</ul>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    <details class="details--with-border">
+      <summary><span class="summary">Preview picker.html</span></summary>
+      <div>
+        <pre class="language-markup">
+          <code class="language-markup">
+            <%= @pickerHtml %>
+          </code>
+        </pre>
+      </div>
+    </details>
+    <details class="details--with-border">
+      <summary>
+        <span class="summary">Preview data.json</span>
+      </summary>
+      <div>
+        <pre class="language-markup">
+          <code class="language-markup"><%= @pickerData %></code>
+        </pre>
+      </div>
+    </details>
+
+    <%= link_to 'Download all code files (zip)', '#', class: 'download-link' %>
+  </div>
+</div>

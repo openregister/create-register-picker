@@ -1,4 +1,5 @@
  @import 'govuk-elements';
+ @import 'prism';
 
 .container {
   @extend %site-width-container;
@@ -7,4 +8,32 @@
 
 .autocomplete__dropdown-arrow-down {
   z-index: 0;
+}
+
+.details--with-border {
+  border-bottom: 1px solid $grey-2;
+  padding: 40px 0;
+
+  summary {
+    margin-bottom: 0;
+  }
+
+  pre[class*="language-"] {
+    margin-top: 40px;
+  }
+
+  &:first-of-type {
+    border-top: 1px solid $grey-2;
+  }
+}
+
+.download-link {
+  background-image: url(https://assets.publishing.service.gov.uk/static/icon-file-download-2x-dea512aab23300d178acab4899f5adb892ea1f2f458cd6f3c3b6817698e84999.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 25px 25px;
+  display: block;
+  font-weight: bold;
+  margin: 40px 0;
+  padding: 0 0 0 40px;
 }
