@@ -24,4 +24,9 @@ class HomeController < ApplicationController
     list_of_registers = OpenRegister.registers :beta
     list_of_registers
   end
+
+  def download
+    @pickerHtml = File.read(Rails.root.join("app", "assets", "static", "picker.html"))
+    @pickerData = File.read(Rails.root.join("app", "assets", "static", "data.json"))
+  end
 end

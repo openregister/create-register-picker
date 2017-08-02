@@ -1,0 +1,42 @@
+<html>
+  <head>
+      <title>Picker Page</title>
+      <link rel="stylesheet" media="screen" href="//unpkg.com/accessible-typeahead@0.4.0/examples/styled.css" />
+  </head>
+  <body>
+    <div class="form-group">
+      <label for="data-picker">Picker Label:</label>
+      <div id="picker" class="typeahead-wrapper form-control-1-2"></div>
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/openregister-picker-engine@1.0.0"></script>
+    <script type="text/javascript" src="https://unpkg.com/accessible-typeahead@0.4.2"></script>
+
+    <script type="text/javascript">
+      var id = 'data-picker'
+      var pathToGraph = 'picker-data.json'
+      var container = document.querySelector('#picker')
+
+      function inputValueTemplate (result) {
+        return result && result.name
+      }
+
+      function suggestionTemplate (result) {
+        var path = result && result.path
+          ? ' (' + result.path + ')'
+          : ''
+        return result && '<strong>' + result.name + '</strong>' + path
+      }
+
+      AccessibleTypeahead({
+        element: container,
+        id: id,
+        source: openregisterPickerEngine({ url: pathToGraph }),
+        templates: {
+          inputValue: inputValueTemplate,
+          suggestion: suggestionTemplate
+        }
+      });
+    </script>
+  </body>
+</html>
