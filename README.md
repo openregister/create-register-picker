@@ -6,35 +6,26 @@ This is a tool for creating [pickers](https://github.com/alphagov/openregister-l
 
 This is a Rails 5.1 app with [webpacker](http://github.com/rails/webpacker). Initially developed on the following (but likely works on other versions):
 
-```bash
-$ ruby -v
-ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin15]
-$ bundle --version
-Bundler version 1.15.2
-$ node -v
-v8.1.4
-$ yarn --version
-0.27.5
-```
+- Ruby `2.4.0p0`
+- Bundler `1.15.2`
+- node `v8.1.4`
+- yarn `0.27.5`
 
 ## Installing and running locally
 
 Install the Ruby and node.js dependencies:
 
 ```bash
-$ bundle
-$ yarn
+bundle
+yarn
 ```
 
 Then run a server locally by running the following commands in two shells:
 
 ```bash
-$ bundle exec rails server
+foreman start
 ```
-
-```bash
-$ ./bin/webpack-dev-server --hot --inline
-```
+> this will run `rails s` and `./bin/webpack-dev-server` for you so you dont have to do both manually
 
 ## Deploying
 
