@@ -1,8 +1,9 @@
 require 'openregister'
 
 class HomeController < ApplicationController
+  before_action :initialize_registers, only: :index
+
   def index
-    @list_of_registers = initializeRegisters()
   end
 
   def choose_field
@@ -20,11 +21,14 @@ class HomeController < ApplicationController
     @register_records = OpenRegister.register(@register_name, @register_phase.to_sym)._all_records
   end
 
-  def initializeRegisters()
-    list_of_registers = OpenRegister.registers :beta
-    list_of_registers
+  def download
   end
 
-  def download
+  private
+
+  def initialize_registers
+    @list_of_registers = OpenRegister.registers(:beta)
+    @list_of_registers.concat(OpenRegister.registers(:alpha))
+    @list_of_registers.concat(OpenRegister.registers(:discovery))
   end
 end
