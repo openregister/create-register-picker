@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: create_register_autocomplete_development
+
+test:
+  <<: *default
+  database: create_register_autocomplete_test
+
+production:
+  <<: *default
+  database: create_register_autocomplete_production
+  username: create_register_autocomplete
+  password: <%= ENV['CREATE_REGISTER_AUTOCOMPLETE_DATABASE_PASSWORD'] %>

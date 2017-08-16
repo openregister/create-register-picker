@@ -3,15 +3,47 @@
 <div class="grid-row">
   <div class="column-two-thirds">
     <div class="form-group">
-      <label class="form-label" for="picker">
-        <strong><%= @register_name.gsub('-', ' ').capitalize %></strong> <%= @register_phase.capitalize %> <code><%= @register_field %></code> picker
+      <label class="form-label" for="autocomplete">
+        Picker
       </label>
-      <select class="form-control autocomplete-select" id="picker" name="picker">
-        <option value="" disabled selected></option>
-        <% @register_records.each do |record| %>
-          <option value="<%= record.key %>"><%= record.send(@register_field.gsub('-', '_')) %></option>
-        <% end %>
-      </select>
+      <div id="autocomplete-wrapper"></div>
+    </div>
+
+    <div class="form-group">
+      <%= link_to "Get the code", download_path, class: "button" %>
     </div>
   </div>
 </div>
+
+<%= content_for :javascript do %>
+  <script type="text/javascript" src="https://unpkg.com/openregister-picker-engine@1.2.1"></script>
+  <script type="text/javascript" src="https://unpkg.com/accessible-autocomplete@1.6.0"></script>
+  <script type="text/javascript">
+    function inputValueTemplate(result) {
+      return result && result.name
+    }
+
+    function suggestionTemplate(result) {
+      var path = result && result.path
+        ? ' (' + result.path + ')'
+        : ''
+      return result && result.name + path
+    }
+
+    accessibleAutocomplete({
+      element: document.querySelector('#autocomplete-wrapper'),
+      id: 'autocomplete',
+      source: openregisterPickerEngine({
+        url: "<%= data_file_path %>"
+      }),
+      templates: {
+        inputValue: inputValueTemplate,
+        suggestion: suggestionTemplate
+      }
+    });
+  </script>
+<% end %>
+
+<%= content_for :head do %>
+  <link rel="stylesheet" media="screen" href="https://unpkg.com/accessible-autocomplete@1.6.0/dist/accessible-autocomplete.min.css" />
+<% end %>
