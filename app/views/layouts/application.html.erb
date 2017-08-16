@@ -3,6 +3,20 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
+<% content_for :page_title, 'GOV.UK Registers' %>
+
+<% content_for :global_header_text do %>
+  GOV.UK <span id="product-name">Registers</span>
+<% end %>
+
+<% content_for :header_class, "with-proposition" %>
+
+<% content_for :inside_header do %>
+  <strong class='phase-badge'>Alpha</strong>
+<% end %>
+
+<% content_for :homepage_url, root_path %>
+
 <%= content_for :content do %>
   <main role='main' class="container">
     <div class="grid-row">
