@@ -2,7 +2,7 @@
 
 <div class="grid-row">
   <div class="column-two-thirds">
-    <%= form_tag("/generate-picker-files", method: "post") do %>
+    <%= form_tag("/generate-component-files", method: "post") do %>
       <input type="hidden" value="<%= @register_name %>" name="selected_register">
       <input type="hidden" value="<%= @register_phase %>" name="selected_phase">
       <div class="form-group">

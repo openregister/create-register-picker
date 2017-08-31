@@ -1,4 +1,4 @@
-# Create register picker
+# Create register autocomplete
 
 [![Build Status](https://travis-ci.org/openregister/create-register-picker.svg?branch=master)](https://travis-ci.org/openregister/create-register-picker)
 

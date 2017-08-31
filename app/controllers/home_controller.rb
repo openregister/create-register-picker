@@ -6,7 +6,11 @@ require 'tempfile'
 class HomeController < ApplicationController
 
   def index
+    registers_without_name = %w(field government-service register datatype)
+
     @list_of_registers = OpenRegister.registers(:beta)
+                                     .reject{ |r| registers_without_name.include?(r.register) || r._records.empty?}
+                                     .sort_by(&:register)
   end
 
   def choose_field
@@ -16,7 +20,7 @@ class HomeController < ApplicationController
     @register = OpenRegister.register(@register_name, @register_phase.to_sym)
   end
 
-  def generate_picker_files
+  def generate_component_files
     @register_name = params[:selected_register]
     @register_phase = params[:selected_phase]
 
@@ -25,15 +29,26 @@ class HomeController < ApplicationController
 
     session[:autocomplete_data_file] = @autocomplete_data
 
-    redirect_to controller: 'home', action: 'show_picker'
+    redirect_to controller: 'home', action: 'show_component'
   end
 
-  def show_picker
+  def show_component
   end
 
   def download
-    files_to_zip = ["#{Rails.root}/app/assets/static/picker.html", "#{data_file_url}"]
-    zip_file_name = "picker-code.zip"
+    @component_html = File.read(Rails.root.join('app/assets/static/component.html'))
+    @component_data = session[:autocomplete_data_file]
+  end
+
+  def download_zip
+    component_html = File.new(Rails.root.join('app/assets/static/component.html'))
+
+    component_json = Tempfile.new(['component', '.json'])
+    component_json.write(session[:autocomplete_data_file])
+    component_json.close
+
+    files_to_zip = [component_json]
+    zip_file_name = "autocomplete-code.zip"
     file = Tempfile.new(zip_file_name)
 
     ::Zip::File.open(file.path, Zip::File::CREATE) do |zip_file|
@@ -45,6 +60,6 @@ class HomeController < ApplicationController
     zip_data = File.read(file.path)
     send_data(zip_data, type: 'application/zip', filename: zip_file_name)
 
-    session[:autocomplete_data_file] = ''
+    #session[:autocomplete_data_file] = ''
   end
 end
