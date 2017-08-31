@@ -30,6 +30,7 @@
 <%= content_for :body_end do %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application' %>
+  <%= yield(:javascript) %>
 <% end %>
 
 <%= render file: 'layouts/govuk_template' %>

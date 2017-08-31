@@ -10,6 +10,12 @@ ruby '~> 2.4.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 
+# Store sessions in DB and not as cookies
+gem 'activerecord-session_store'
+
+# Database
+gem 'pg'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 
@@ -38,6 +44,11 @@ gem 'openregister-ruby', git: 'https://github.com/openregister/openregister-ruby
 gem 'govuk_template'
 gem 'govuk_frontend_toolkit'
 gem 'govuk_elements_rails'
+
+# Generate zip files
+gem 'rubyzip'
+
+gem 'httparty'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console

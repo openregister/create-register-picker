@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Component Page</title>
+    <link rel="stylesheet" media="screen" href="https://unpkg.com/accessible-autocomplete@1.6.0/dist/accessible-autocomplete.min.css" />
+  </head>
+  <body>
+    <div class="form-group">
+      <label for="data-picker">Autocomplete Label:</label>
+      <div id="picker"></div>
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/openregister-picker-engine@1.2.1"></script>
+    <script type="text/javascript" src="https://unpkg.com/accessible-autocomplete@1.6.0"></script>
+    <script type="text/javascript">
+      function inputValueTemplate (result) {
+        return result && result.name
+      }
+
+      function suggestionTemplate (result) {
+        var path = result && result.path
+          ? ' (' + result.path + ')'
+          : ''
+        return result && result.name + path
+      }
+
+      accessibleAutocomplete({
+        element: document.querySelector('#picker'),
+        id: 'data-picker',
+        source: openregisterPickerEngine({
+          url: 'picker-data.json'
+        }),
+        templates: {
+          inputValue: inputValueTemplate,
+          suggestion: suggestionTemplate
+        }
+      });
+    </script>
+  </body>
+</html>

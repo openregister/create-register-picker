@@ -1,36 +1,36 @@
 <h1 class="heading-large">Preview and download your code</h1>
-<p>Your picker and dataset is available as two files:</p>
+<p>Your autocomplete component are two files:</p>
 <ul class="list">
-  <li>picker.html</li>
-  <li>data.json</li>
+  <li>component.html</li>
+  <li>component.json</li>
 </ul>
 
 <div class="grid-row">
   <div class="column-two-thirds">
     <hr>
     <details>
-      <summary class="summary">Preview picker.html</summary>
+      <summary class="summary">Preview component.html</summary>
       <div>
         <pre class="language-markup">
           <code class="language-markup">
-            TODO
+            <%= @component_html %>
           </code>
         </pre>
       </div>
     </details>
     <hr>
     <details>
-      <summary class="summary">Preview data.json</summary>
+      <summary class="summary">Preview component.json</summary>
       <div>
         <pre class="language-markup">
           <code class="language-markup">
-            TODO
+            <%= @component_data %>
           </code>
         </pre>
       </div>
     </details>
     <hr>
-    <%= link_to '#TODO', class: 'download-link' do %>
+    <%= link_to download_zip_path, class: 'download-link' do %>
      <svg class="download-link__icon" aria-hidden="true" viewbox="0 0 25 25" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
         <g>
           <path d="M23 5h2v20H5v-2h18V5z"></path>
