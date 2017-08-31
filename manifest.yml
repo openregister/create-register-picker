@@ -1,8 +1,10 @@
 ---
 applications:
-- name: create-register-picker
+- name: create-register-autocomplete
   buildpacks:
     - https://github.com/cloudfoundry/ruby-buildpack/
     - https://github.com/cloudfoundry/nodejs-buildpack/
   instances: 2
   memory: 256MB
+  routes:
+    - route: create-register-autocomplete.cloudapps.digital
